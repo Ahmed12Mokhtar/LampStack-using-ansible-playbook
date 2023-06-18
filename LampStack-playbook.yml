@@ -1,0 +1,14 @@
+- hosts: localhost
+  become: yes
+  roles:
+  - apache
+  - mysql 
+  - php
+
+  tasks:
+  - name: restart httpd
+    systemd:
+        name: httpd
+        state: reloaded
+        enabled: yes
+
